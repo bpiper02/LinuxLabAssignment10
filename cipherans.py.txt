@@ -1,4 +1,4 @@
-def encrypt_text(plaintext,n):
+def encrypt_cypher(plaintext,n):
     cipher_ans = ""
     for x in range(len(plaintext)):
         char = plaintext[x]
@@ -14,21 +14,20 @@ def encrypt_text(plaintext,n):
         else:
             cipher_ans += chr((ord(char) + n-97) % 26 + 97)
 
-    return ans
-def print_blocks(s):
-    s = encrypt_text(plaintext, n)
-    s = ''.join(filter(lambda c: c.isalpha(), s.upper())) 
-    blocks = [s[x:x + 5] for x in range(0, len(s), 5)]
-    for x in range(0, len(blocks), 10):
-        for y in range(x, min(x + 10, len(blocks))):
-            print(blocks[y], end=' ')
+    return  cipher_ans
+def print_words(ch):
+    ch = encrypt_text(plaintext, n)
+    ch = ''.join(filter(lambda c: c.isalpha(), s.upper())) 
+    words = [ch[x:x + 5] for x in range(0, len(ch), 5)]
+    for x in range(0, len(words), 10):
+        for y in range(x, min(x + 10, len(words))):
+            print(words[y], end=' ')
 
 
 plaintext = "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the government for a redress of grievances."
 n = 1
-s = encrypt_text(plaintext, n)
+s = encrypt_cypher(plaintext, n)
 print("Plain Text is : " + plaintext)
 print("Shift pattern is : " + str(n))
 print("The Encrypted Text Is: ")
-print(print_blocks(s))
-
+print(print_words(s))
