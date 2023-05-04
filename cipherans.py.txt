@@ -5,10 +5,10 @@ def encrypt_text(plaintext,n):
         
         #if space is present then add space
         if char==" " or char == ',' or char == '.' or char == ';':
-            ans+=" "
+            cipher_ans+=" "
         # if a character is uppercase then encrypt it 
         elif (char.isupper()):
-            ans += chr((ord(char) + n-65) % 26 + 65)
+            cipher_ans += chr((ord(char) + n-65) % 26 + 65)
         # if a character is lowercase then encrypt it 
         
         else:
